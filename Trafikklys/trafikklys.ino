@@ -3,17 +3,17 @@ int vertState = 0;
 int lightMode = 0;
 
 const int lightState[4][4] = {
-    {0, 1, 1},
-    {0, 0, 1},
-    {1, 1, 0},
-    {1, 0, 1}
+    {0, 1, 1}, // Rødt
+    {0, 0, 1}, // Rødt gult
+    {1, 1, 0}, // Grønnt
+    {1, 0, 1}  // Gult
 };
 
 const int lights[4][3] = {
-    {2, 3, 4},
-    {5, 6, 7},
-    {8, 9, 10},
-    {11, 12, 13},
+    {2, 3, 4}, // Sør
+    {5, 6, 7}, // Nord
+    {8, 9, 10}, // Vest
+    {11, 12, 13}, // Øst
 };
 
 const float time[4] = {
