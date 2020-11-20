@@ -22,7 +22,7 @@ void slowBlink(int pin) {
 }
 
 void loop() {
-  Serial.println(digitalRead(in));
+  Serial.println("Knapp: " + String(digitalRead(in)));
   if(digitalRead(in) == 1) {
     fastBlink(out);
   } else {
