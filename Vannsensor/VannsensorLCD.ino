@@ -7,7 +7,7 @@
 #define MOTOR 8
 
 LiquidCrystal lcd(6, 7, 2, 3, 4, 5);
-String currentText = "";
+String currentText;
 bool state[4] = { false, false, false, false };
 
 void setup() {
