@@ -8,7 +8,7 @@
 
 LiquidCrystal lcd(6, 7, 2, 3, 4, 5);
 String currentText;
-bool state[4] = { false, false, false, false };
+bool pump = false;
 
 void setup() {
 	lcd.begin(16, 2);
@@ -28,7 +28,24 @@ void loop() {
 
 	if((!water25 && (water50 || water75 || water100)) || (!water50 && (water75 || water100)) || (!water75 && water100)) {
 		display("Sensor feil");
+
+		if(pump) {
+			digitalWrite(MOTOR, LOW);
+			pump = false;
+		}
 	} else {
+		if(pump && water100) {
+			digitalWrite(MOTOR, LOW);
+			display("Pump stopped");
+			pump = false;
+			delay(1000);
+		} else if(!pump && water25 && !water50) {
+			digitalWrite(MOTOR, HIGH);
+			display("Pump started");
+			pump = true;
+			delay(1000);
+		}
+
 		display(water100 ? "100%" : water75 ? "75%" : water50 ? "50%" : water25 ? "25%" : "0%");
 	}
 
