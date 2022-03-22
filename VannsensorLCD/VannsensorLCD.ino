@@ -42,7 +42,7 @@ void loop() {
 			delay(2000);
 		}
 
-		if(!pump && (lastState[0] != water25 || lastState[1] != water50 || lastState[2] != water75 || lastState[3] != water100)) {
+		if(!pump && ((!water25 && lastState[0] != water25) || (!water50 && lastState[1] != water50) || (!water75 && lastState[2] != water75) || (!water100 && lastState[3] != water100))) {
 			if(lastChange > millis()) {
 				digitalWrite(MOTOR, HIGH);
 				display("Unusual usage");
