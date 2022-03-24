@@ -15,7 +15,6 @@
 
 Adafruit_SSD1306 OLED(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 unsigned long lastChange = 0;
-String currentText;
 bool lastState[4] = { false, false, false, false };
 bool highUsage = false;
 
