@@ -38,7 +38,6 @@ void loop() {
 	bool water75 = digitalRead(WATER75);
 	bool water100 = digitalRead(WATER100);
 	bool error = (!water25 && (water50 || water75 || water100)) || (!water50 && (water75 || water100)) || (!water75 && water100);
-	bool usage = false;
 	bool pump = digitalRead(MOTOR);
 
 	if(error && pump) digitalWrite(MOTOR, LOW);
